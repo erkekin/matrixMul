@@ -25,7 +25,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FF58068018D9EDA900B5F2A8 /* OS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OS; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF58068018D9EDA900B5F2A8 /* matrixMul */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = matrixMul; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF58068318D9EDA900B5F2A8 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		FF58068518D9EDA900B5F2A8 /* OS.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = OS.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 		FF58068118D9EDA900B5F2A8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FF58068018D9EDA900B5F2A8 /* OS */,
+				FF58068018D9EDA900B5F2A8 /* matrixMul */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -69,9 +69,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FF58067F18D9EDA900B5F2A8 /* OS */ = {
+		FF58067F18D9EDA900B5F2A8 /* matrixMul */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FF58068918D9EDA900B5F2A8 /* Build configuration list for PBXNativeTarget "OS" */;
+			buildConfigurationList = FF58068918D9EDA900B5F2A8 /* Build configuration list for PBXNativeTarget "matrixMul" */;
 			buildPhases = (
 				FF58067C18D9EDA900B5F2A8 /* Sources */,
 				FF58067D18D9EDA900B5F2A8 /* Frameworks */,
@@ -81,9 +81,9 @@
 			);
 			dependencies = (
 			);
-			name = OS;
+			name = matrixMul;
 			productName = OS;
-			productReference = FF58068018D9EDA900B5F2A8 /* OS */;
+			productReference = FF58068018D9EDA900B5F2A8 /* matrixMul */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -95,7 +95,7 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = erkekin;
 			};
-			buildConfigurationList = FF58067B18D9EDA900B5F2A8 /* Build configuration list for PBXProject "OS" */;
+			buildConfigurationList = FF58067B18D9EDA900B5F2A8 /* Build configuration list for PBXProject "matrixMul" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -107,7 +107,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FF58067F18D9EDA900B5F2A8 /* OS */,
+				FF58067F18D9EDA900B5F2A8 /* matrixMul */,
 			);
 		};
 /* End PBXProject section */
@@ -197,21 +197,21 @@
 		FF58068A18D9EDA900B5F2A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = matrixMul;
 			};
 			name = Debug;
 		};
 		FF58068B18D9EDA900B5F2A8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = matrixMul;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FF58067B18D9EDA900B5F2A8 /* Build configuration list for PBXProject "OS" */ = {
+		FF58067B18D9EDA900B5F2A8 /* Build configuration list for PBXProject "matrixMul" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FF58068718D9EDA900B5F2A8 /* Debug */,
@@ -220,13 +220,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FF58068918D9EDA900B5F2A8 /* Build configuration list for PBXNativeTarget "OS" */ = {
+		FF58068918D9EDA900B5F2A8 /* Build configuration list for PBXNativeTarget "matrixMul" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FF58068A18D9EDA900B5F2A8 /* Debug */,
 				FF58068B18D9EDA900B5F2A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FF58067F18D9EDA900B5F2A8"
                BuildableName = "OS"
-               BlueprintName = "OS"
-               ReferencedContainer = "container:OS.xcodeproj">
+               BlueprintName = "matrixMul"
+               ReferencedContainer = "container:matrixMul.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FF58067F18D9EDA900B5F2A8"
             BuildableName = "OS"
-            BlueprintName = "OS"
-            ReferencedContainer = "container:OS.xcodeproj">
+            BlueprintName = "matrixMul"
+            ReferencedContainer = "container:matrixMul.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -47,16 +47,38 @@
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
-      allowLocationSimulation = "YES">
+      allowLocationSimulation = "NO">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FF58067F18D9EDA900B5F2A8"
             BuildableName = "OS"
-            BlueprintName = "OS"
-            ReferencedContainer = "container:OS.xcodeproj">
+            BlueprintName = "matrixMul"
+            ReferencedContainer = "container:matrixMul.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "2"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "2"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "matrixa.dat"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "matrixb.dat"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "result.dat"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -71,8 +93,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FF58067F18D9EDA900B5F2A8"
             BuildableName = "OS"
-            BlueprintName = "OS"
-            ReferencedContainer = "container:OS.xcodeproj">
+            BlueprintName = "matrixMul"
+            ReferencedContainer = "container:matrixMul.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
