@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FF58067F18D9EDA900B5F2A8"
-               BuildableName = "OS"
+               BuildableName = "matrixMul"
                BlueprintName = "matrixMul"
                ReferencedContainer = "container:matrixMul.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FF58067F18D9EDA900B5F2A8"
-            BuildableName = "OS"
+            BuildableName = "matrixMul"
             BlueprintName = "matrixMul"
             ReferencedContainer = "container:matrixMul.xcodeproj">
          </BuildableReference>
@@ -52,14 +52,14 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FF58067F18D9EDA900B5F2A8"
-            BuildableName = "OS"
+            BuildableName = "matrixMul"
             BlueprintName = "matrixMul"
             ReferencedContainer = "container:matrixMul.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "2"
+            argument = "6"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
@@ -92,7 +92,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FF58067F18D9EDA900B5F2A8"
-            BuildableName = "OS"
+            BuildableName = "matrixMul"
             BlueprintName = "matrixMul"
             ReferencedContainer = "container:matrixMul.xcodeproj">
          </BuildableReference>
