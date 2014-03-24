@@ -76,13 +76,16 @@ void printMatrixes(int N) {
             
         } printf("\n");
     }
-}
-
-int carp(int row){
+    printf("\n");
+    for (i=0; i<N; i++) {
+        
+        for (j=0; j<N; j++) {
+            
+            printf("%d ",C[i][j]);
+            
+        } printf("\n");
+    }
     
-    printf("a %d\n",   A[0][row]*B[0][row]);
-    
-    return 2;
 }
 
 void* multiply(void* slice)
@@ -107,12 +110,15 @@ void* multiply(void* slice)
     return 0;
 }
 
+
 #pragma mark Main Function
+
+
 
 int main(int argc, char* argv[]){
     
     int size=0;
-    int i =0;
+    int rowCount =0;
     
     if (argc < MIN_REQUIRED)  return help();
     
@@ -122,19 +128,17 @@ int main(int argc, char* argv[]){
     readMatrix((char*)argv[3],size);
     readMatrix((char*)argv[4],size);
     
-    for (i=0; i<size/num_thrd; i++) {
-        
-        carp(i);
-        
-        
-    }
+    rowCount =size/num_thrd;
+    multiply(2);
     
-    C[0][0] = 1;   C[0][1] = 2;    C[0][2] = 3;   C[0][3] = 4;   C[0][4] = 5;   C[0][5] = 6;
-    C[1][0] = 1;   C[1][1] = 2;    C[1][2] = 3;   C[1][3] = 4;   C[1][4] = 5;   C[1][5] = 6;
-    C[2][0] = 1;   C[2][1] = 2;    C[2][2] = 3;   C[2][3] = 4;   C[2][4] = 5;   C[2][5] = 6;
-    C[3][0] = 1;   C[3][1] = 2;    C[3][2] = 3;   C[3][3] = 4;   C[3][4] = 5;   C[3][5] = 6;
-    C[4][0] = 1;   C[4][1] = 2;    C[4][2] = 3;   C[4][3] = 4;   C[4][4] = 5;   C[4][5] = 6;
-    C[5][0] = 1;   C[5][1] = 2;    C[5][2] = 3;   C[5][3] = 4;   C[5][4] = 5;   C[5][5] = 6;
+    
+    //      C[0][0] = 1;   C[0][1] = 2;    C[0][2] = 3;   C[0][3] = 4;   C[0][4] = 5;   C[0][5] = 6;
+    //      C[1][0] = 7;   C[1][1] = 8;    C[1][2] = 9;   C[1][3] = 10;   C[1][4] = 11;   C[1][5] = 12;
+    //      C[2][0] = 1;   C[2][1] = 2;    C[2][2] = 3;   C[2][3] = 4;   C[2][4] = 5;   C[2][5] = 6;
+    //      C[3][0] = 1;   C[3][1] = 2;    C[3][2] = 3;   C[3][3] = 4;   C[3][4] = 5;   C[3][5] = 6;
+    //      C[4][0] = 1;   C[4][1] = 2;    C[4][2] = 3;   C[4][3] = 4;   C[4][4] = 5;   C[4][5] = 6;
+    //      C[5][0] = 1;   C[5][1] = 2;    C[5][2] = 3;   C[5][3] = 4;   C[5][4] = 5;   C[5][5] = 6;
+    
     
     writeMatrix((char*)argv[5],size);
     
