@@ -5,7 +5,7 @@
 #include <pthread.h>
 #include <string.h>
 
-
+int size=0;   // size matters
 int num_thrd;   // number of threads
 #define SIZE 6   // Size by SIZE matrices
 
@@ -91,22 +91,20 @@ void printMatrixes(int N) {
 void* multiply(void* slice)
 {
     int s = (int)slice;   // retrive the slice info
-    int from = (s * SIZE)/num_thrd; // note that this 'slicing' works fine
-    int to = ((s+1) * SIZE)/num_thrd; // even if SIZE is not divisible by num_thrd
+    int from = (s * size)/num_thrd; // note that this 'slicing' works fine
+    int to = ((s+1) * size)/num_thrd; // even if SIZE is not divisible by num_thrd
     int i,j,k;
     
-    printf("computing slice %d (from row %d to %d)\n", s, from, to-1);
     for (i = from; i < to; i++)
     {
-        for (j = 0; j < SIZE; j++)
+        for (j = 0; j < size; j++)
         {
             C[i][j] = 0;
-            for ( k = 0; k < SIZE; k++)
+            for ( k = 0; k < size; k++)
                 C[i][j] += A[i][k]*B[k][j];
         }
     }
     
-    printf("finished slice %d\n", s);
     return 0;
 }
 
@@ -117,8 +115,9 @@ void* multiply(void* slice)
 
 int main(int argc, char* argv[]){
     
-    int size=0;
+    int i =0;
     int rowCount =0;
+    struct timeval t0,t1;
     
     if (argc < MIN_REQUIRED)  return help();
     
@@ -129,8 +128,26 @@ int main(int argc, char* argv[]){
     readMatrix((char*)argv[4],size);
     
     rowCount =size/num_thrd;
-    multiply(2);
     
+    gettimeofday(&t0, 0);
+
+    for (i=0; i<num_thrd; i++) {
+        
+        pthread_t tid;       //Thread ID
+        pthread_attr_t attr; //Set of thread attributes
+        //Get the default attributes
+        pthread_attr_init(&attr);
+        //Create the thread
+        pthread_create(&tid,&attr,multiply,(void*)i);
+        pthread_join(tid, NULL);
+        
+    //Make sure the parent waits for all thread to complete
+        
+    }
+    
+    gettimeofday(&t1, 0);
+    long elapsed = (t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec;
+    printf("%ld geçti..\n",elapsed);
     
     //      C[0][0] = 1;   C[0][1] = 2;    C[0][2] = 3;   C[0][3] = 4;   C[0][4] = 5;   C[0][5] = 6;
     //      C[1][0] = 7;   C[1][1] = 8;    C[1][2] = 9;   C[1][3] = 10;   C[1][4] = 11;   C[1][5] = 12;
