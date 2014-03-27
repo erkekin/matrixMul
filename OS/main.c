@@ -1,3 +1,4 @@
+/* ERK EKİN 44845434354 eekin@anadolu.edu.tr www.erkekin.com*/
 
 
 #include <stdio.h>
@@ -7,7 +8,8 @@
 
 int size=0;   // size matters
 int num_thrd;   // number of threads
-#define SIZE 6   // Size by SIZE matrices
+
+#define SIZE 100   // Size by SIZE matrices
 
 /* minimum required number of parameters */
 
@@ -111,8 +113,6 @@ void* multiply(void* slice)
 
 #pragma mark Main Function
 
-
-
 int main(int argc, char* argv[]){
     
     int i =0;
@@ -141,22 +141,13 @@ int main(int argc, char* argv[]){
         pthread_create(&tid,&attr,multiply,(void*)i);
         pthread_join(tid, NULL);
         
-    //Make sure the parent waits for all thread to complete
-        
     }
     
     gettimeofday(&t1, 0);
     long elapsed = (t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec;
-    printf("%ld geçti..\n",elapsed);
-    
-    //      C[0][0] = 1;   C[0][1] = 2;    C[0][2] = 3;   C[0][3] = 4;   C[0][4] = 5;   C[0][5] = 6;
-    //      C[1][0] = 7;   C[1][1] = 8;    C[1][2] = 9;   C[1][3] = 10;   C[1][4] = 11;   C[1][5] = 12;
-    //      C[2][0] = 1;   C[2][1] = 2;    C[2][2] = 3;   C[2][3] = 4;   C[2][4] = 5;   C[2][5] = 6;
-    //      C[3][0] = 1;   C[3][1] = 2;    C[3][2] = 3;   C[3][3] = 4;   C[3][4] = 5;   C[3][5] = 6;
-    //      C[4][0] = 1;   C[4][1] = 2;    C[4][2] = 3;   C[4][3] = 4;   C[4][4] = 5;   C[4][5] = 6;
-    //      C[5][0] = 1;   C[5][1] = 2;    C[5][2] = 3;   C[5][3] = 4;   C[5][4] = 5;   C[5][5] = 6;
-    
-    
+    printf("\n\nTotal execution time using threads is %ld microseconds\n",elapsed);
+
+
     writeMatrix((char*)argv[5],size);
     
     printMatrixes(size);
