@@ -25,8 +25,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0455AC4D18E499E0009BC397 /* matrixa.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = matrixa.dat; sourceTree = "<group>"; };
-		0455AC4E18E499E0009BC397 /* matrixb.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = matrixb.dat; sourceTree = "<group>"; };
+		048316FC18E4ACED002C8276 /* matrixa.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = matrixa.dat; sourceTree = "<group>"; };
+		048316FD18E4ACED002C8276 /* matrixb.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = matrixb.dat; sourceTree = "<group>"; };
 		FF58068018D9EDA900B5F2A8 /* matrixMul */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = matrixMul; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF58068318D9EDA900B5F2A8 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		FF58068518D9EDA900B5F2A8 /* OS.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = OS.1; sourceTree = "<group>"; };
@@ -62,8 +62,8 @@
 		FF58068218D9EDA900B5F2A8 /* OS */ = {
 			isa = PBXGroup;
 			children = (
-				0455AC4D18E499E0009BC397 /* matrixa.dat */,
-				0455AC4E18E499E0009BC397 /* matrixb.dat */,
+				048316FC18E4ACED002C8276 /* matrixa.dat */,
+				048316FD18E4ACED002C8276 /* matrixb.dat */,
 				FF58068318D9EDA900B5F2A8 /* main.c */,
 				FF58068518D9EDA900B5F2A8 /* OS.1 */,
 			);

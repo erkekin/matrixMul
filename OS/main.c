@@ -1,6 +1,5 @@
 /* ERK EKİN 44845434354 eekin@anadolu.edu.tr www.erkekin.com*/
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -9,7 +8,7 @@
 int size=0;   // size matters
 int num_thrd;   // number of threads
 
-#define SIZE 100   // Size by SIZE matrices
+#define SIZE 100  // Size by SIZE matrices
 
 /* minimum required number of parameters */
 
@@ -37,7 +36,6 @@ void writeMatrix(char*  filename,int N){
     
 } //end-writeMatrix
 
-
 void readMatrix(char*  filename, int N){
     
     FILE * matrixFile;
@@ -50,17 +48,15 @@ void readMatrix(char*  filename, int N){
     
     fread(strcmp(filename,"matrixa.dat")?A:B, sizeof(int),  N*N, matrixFile);
     
-    
     fclose(matrixFile);
     
 } //end-readMatrix
-
 
 void printMatrixes(int N) {
     
     int j;
     int i;
-    
+ 
     for (i=0; i<N; i++) {
         
         for (j=0; j<N; j++) {
@@ -153,9 +149,8 @@ int main(int argc, char* argv[]){
 //        C[3][0] = 1;   C[3][1] = 2;    C[3][2] = 3;   C[3][3] = 4;   C[3][4] = 5;   C[3][5] = 6;
 //        C[4][0] = 1;   C[4][1] = 2;    C[4][2] = 3;   C[4][3] = 4;   C[4][4] = 5;   C[4][5] = 6;
 //        C[5][0] = 1;   C[5][1] = 2;    C[5][2] = 3;   C[5][3] = 4;   C[5][4] = 5;   C[5][5] = 6;
-//    
 
-    writeMatrix((char*)argv[5],size);
+   // writeMatrix((char*)argv[5],size);
     
     printMatrixes(size);
     
