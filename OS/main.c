@@ -111,7 +111,7 @@ void* multiply(void* slice)
 
 int ** create_table(char*  filename, int size)
 {
-      FILE * matrixFile;
+    FILE * matrixFile;
     int x;
     int **array;
     
@@ -120,7 +120,7 @@ int ** create_table(char*  filename, int size)
         printf("Error opening file\n");
         
     }
-  
+    
     array = malloc (size*sizeof(int*));
     
     for(x = 0; x < size; x++)
@@ -128,128 +128,186 @@ int ** create_table(char*  filename, int size)
     
         //     fread(array, sizeof(int),  size*size, matrixFile);
     
-         fclose(matrixFile);
+    fclose(matrixFile);
     
     return array;
 }
 
-
-
-
 int main(int argc, char* argv[]){
     
     FILE *matrixFile;
-    int i ,y=0;
-        //    int rowCount =0;
-        //    struct timeval t0,t1;
-        //
-    int **a; int **b;
+    int i,j =0;
+    int* array;
+    int* array1;
     
     if (argc < MIN_REQUIRED)  return help();
     
     size = atoi (argv[1]); num_thrd = atoi(argv[2]);
     
-    a= create_table("matrixa.dat",size);
-    b= create_table("matrixb.dat",size);
+    array = malloc (size*size*sizeof(int*));
+    array1 = malloc (size*size*sizeof(int*));
     
-    for(i = 0; i < size; i++)
-    {
-        for(y = 0; y < size; y++){
+    
+    for (i = 0; i<size; i++) {
+        
+        for (j = 0; j<size; j++) {
             
-          a[i][y]=i ;
+            *(array+6*i+j) = i;
+            
         }
         
-        printf("\n");
-        
     }
-  
-      //YAZ
     
+    
+        //YAZ
     matrixFile=fopen("matris1.dat", "wb");
     
-    for(i = 0; i < size; i++)
-    {
-        
-        fwrite(a,sizeof(int*),size,matrixFile);
-        
-        for (y=0; y<size; y++) {
-            
-             fwrite(a[i],sizeof(int),size,matrixFile);
-        }
-    }
-    
-        //  fwrite(a, sizeof(int*), size*size, matrixFile);
-    
+        fwrite(array, sizeof(int*), size*size, matrixFile);
+  
     fclose(matrixFile);
-
     
     
-       //OKU
     
+        //OKU
     if ((matrixFile = fopen("matris1.dat", "rb")) == NULL)
     {
         printf("Error opening file\n");
-      
     }
     
-    fread(a, sizeof(int*),  size*size, matrixFile);
+    fread(array1, sizeof(int*), size*size, matrixFile);
     
     fclose(matrixFile);
-
     
     
-    for(i = 0; i < size; i++)
-    {
-        for(y = 0; y < size; y++){
+    
+    for (i = 0; i<size; i++) {
+        
+        for (j = 0; j<size; j++) {
             
-            printf("%d\n",a[i][y]=i) ;
+                    printf("%d ", *(array1+6*i+j));
         }
-        
         printf("\n");
-        
     }
-
     
-    
-    
-    
-    
-        //    readMatrix((char*)argv[3],size);
-        //    readMatrix((char*)argv[4],size);
-        //
-        //    rowCount =size/num_thrd;
-        //
-        //    gettimeofday(&t0, 0);
-        //
-        //    for (i=0; i<num_thrd; i++) {
-        //
-        //        pthread_t tid;       //Thread ID
-        //        pthread_attr_t attr; //Set of thread attributes
-        //        //Get the default attributes
-        //        pthread_attr_init(&attr);
-        //        //Create the thread
-        //        pthread_create(&tid,&attr,multiply,(void*)i);
-        //        pthread_join(tid, NULL);
-        //
-        //    }
-        //
-        //    gettimeofday(&t1, 0);
-        //    long elapsed = (t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec;
-        //    printf("\n\nTotal execution time using threads is %ld microseconds\n",elapsed);
-        //
-        ////        C[0][0] = 1;   C[0][1] = 2;    C[0][2] = 3;   C[0][3] = 4;   C[0][4] = 5;   C[0][5] = 6;
-        ////        C[1][0] = 7;   C[1][1] = 8;    C[1][2] = 9;   C[1][3] = 10;   C[1][4] = 11;   C[1][5] = 12;
-        ////        C[2][0] = 1;   C[2][1] = 2;    C[2][2] = 3;   C[2][3] = 4;   C[2][4] = 5;   C[2][5] = 6;
-        ////        C[3][0] = 1;   C[3][1] = 2;    C[3][2] = 3;   C[3][3] = 4;   C[3][4] = 5;   C[3][5] = 6;
-        ////        C[4][0] = 1;   C[4][1] = 2;    C[4][2] = 3;   C[4][3] = 4;   C[4][4] = 5;   C[4][5] = 6;
-        ////        C[5][0] = 1;   C[5][1] = 2;    C[5][2] = 3;   C[5][3] = 4;   C[5][4] = 5;   C[5][5] = 6;
-        //
-        //   // writeMatrix((char*)argv[5],size);
-        //
-        //    printMatrixes(size);
     
     return 0;
     
 } //end-main
+
+
+
+    //int main(int argc, char* argv[]){
+    //
+    //    FILE *matrixFile;
+    //    int i ,y=0;
+    //        //    int rowCount =0;
+    //        //    struct timeval t0,t1;
+    //        //
+    //    int **a; int **b;
+    //
+    //    if (argc < MIN_REQUIRED)  return help();
+    //
+    //    size = atoi (argv[1]); num_thrd = atoi(argv[2]);
+    //
+    //    a= create_table("matrixa.dat",size);
+    //    b= create_table("matrixb.dat",size);
+    //
+    //    for(i = 0; i < size; i++)
+    //    {
+    //        for(y = 0; y < size; y++){
+    //
+    //          a[i][y]=i ;
+    //        }
+    //
+    //        printf("\n");
+    //
+    //    }
+    //
+    //      //YAZ
+    //
+    //    matrixFile=fopen("matris1.dat", "wb");
+    //
+    //    for(i = 0; i < size; i++)
+    //    {
+    //
+    //        fwrite(a,sizeof(int*),size,matrixFile);
+    //
+    //        for (y=0; y<size; y++) {
+    //
+    //             fwrite(a[i],sizeof(int),size,matrixFile);
+    //        }
+    //    }
+    //
+    //        //  fwrite(a, sizeof(int*), size*size, matrixFile);
+    //
+    //    fclose(matrixFile);
+    //
+    //       //OKU
+    //
+    //    if ((matrixFile = fopen("matris1.dat", "rb")) == NULL)
+    //    {
+    //        printf("Error opening file\n");
+    //
+    //    }
+    //
+    //    fread(b, sizeof(int*), size, matrixFile);
+    //
+    //    for (y=0; y<size; y++) {
+    //
+    //        fread(b[i],sizeof(int),size,matrixFile);
+    //    }
+    //
+    //    fclose(matrixFile);
+    //
+    //
+    //    for(i = 0; i < size; i++)
+    //    {
+    //        for(y = 0; y < size; y++){
+    //
+    //            printf("%d\n",b[i][y]) ;
+    //        }
+    //
+    //        printf("\n");
+    //
+    //    }
+    //
+    //
+    //        //    readMatrix((char*)argv[3],size);
+    //        //    readMatrix((char*)argv[4],size);
+    //        //
+    //        //    rowCount =size/num_thrd;
+    //        //
+    //        //    gettimeofday(&t0, 0);
+    //        //
+    //        //    for (i=0; i<num_thrd; i++) {
+    //        //
+    //        //        pthread_t tid;       //Thread ID
+    //        //        pthread_attr_t attr; //Set of thread attributes
+    //        //        //Get the default attributes
+    //        //        pthread_attr_init(&attr);
+    //        //        //Create the thread
+    //        //        pthread_create(&tid,&attr,multiply,(void*)i);
+    //        //        pthread_join(tid, NULL);
+    //        //
+    //        //    }
+    //        //
+    //        //    gettimeofday(&t1, 0);
+    //        //    long elapsed = (t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec;
+    //        //    printf("\n\nTotal execution time using threads is %ld microseconds\n",elapsed);
+    //        //
+    //        ////        C[0][0] = 1;   C[0][1] = 2;    C[0][2] = 3;   C[0][3] = 4;   C[0][4] = 5;   C[0][5] = 6;
+    //        ////        C[1][0] = 7;   C[1][1] = 8;    C[1][2] = 9;   C[1][3] = 10;   C[1][4] = 11;   C[1][5] = 12;
+    //        ////        C[2][0] = 1;   C[2][1] = 2;    C[2][2] = 3;   C[2][3] = 4;   C[2][4] = 5;   C[2][5] = 6;
+    //        ////        C[3][0] = 1;   C[3][1] = 2;    C[3][2] = 3;   C[3][3] = 4;   C[3][4] = 5;   C[3][5] = 6;
+    //        ////        C[4][0] = 1;   C[4][1] = 2;    C[4][2] = 3;   C[4][3] = 4;   C[4][4] = 5;   C[4][5] = 6;
+    //        ////        C[5][0] = 1;   C[5][1] = 2;    C[5][2] = 3;   C[5][3] = 4;   C[5][4] = 5;   C[5][5] = 6;
+    //        //
+    //        //   // writeMatrix((char*)argv[5],size);
+    //        //
+    //        //    printMatrixes(size);
+    //
+    //    return 0;
+    //
+    //} //end-main
 
 
