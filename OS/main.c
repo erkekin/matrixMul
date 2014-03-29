@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <string.h>
+#include <time.h>
 
 int size=0;   // size matters
 int num_thrd;   // number of threads
@@ -85,7 +86,7 @@ int main(int argc, char* argv[]){
     int rowCount =0;
     struct timeval t0,t1;
     FILE *matrixFile;
-    int i,j =0;
+    int i =0;
     
     int* array1;
     int* matrixa;
@@ -100,25 +101,24 @@ int main(int argc, char* argv[]){
     matrixb = malloc (size*size*sizeof(int*));
     matrixc = malloc (size*size*sizeof(int*));
     
-        //PRODUCE ARRAY
-    for (i = 0; i<size; i++) {
-        
-        for (j = 0; j<size; j++) {
-            
-            *(array1+size*i+j) = i;
-            
-        }
-        
-    }
+        //        //PRODUCE ARRAY
+        //    for (i = 0; i<size; i++) {
+        //
+        //        for (j = 0; j<size; j++) {
+        //
+        //            *(array1+size*i+j) = i;
+        //
+        //        }
+        //
+        //    }
     
-        //WRITE PRODUCED ARRAY
-    matrixFile=fopen("matris1.dat", "wb");
-    
-    fwrite(array1, sizeof(int*), size*size, matrixFile);
-    
-    fclose(matrixFile);
-    
-    
+        //        //WRITE PRODUCED ARRAY
+        //    matrixFile=fopen("matris1.dat", "wb");
+        //
+        //    fwrite(array1, sizeof(int*), size*size, matrixFile);
+        //
+        //    fclose(matrixFile);
+ 
     
         //READ FIRST ARRAY
     if ((matrixFile = fopen("matrixa.dat", "rb")) == NULL)
@@ -137,14 +137,11 @@ int main(int argc, char* argv[]){
     }
     
     fread(matrixb, sizeof(int*), size*size, matrixFile);
+    fclose(matrixFile);
     
     ilkmatrix =matrixa;
     ikincimatrix =matrixb;
     resulmatrix = matrixc;
-    
-  
-    
-    fclose(matrixFile);
     
     rowCount =size/num_thrd;
     
@@ -162,7 +159,7 @@ int main(int argc, char* argv[]){
     
     gettimeofday(&t1, 0);
     long elapsed = (t1.tv_sec-t0.tv_sec)*1000000 + t1.tv_usec-t0.tv_usec;
-    printf("\n\nTotal execution time using threads is %ld microseconds\n",elapsed);
+    printf("Total execution time using threads is %ld microseconds\n",elapsed);
     
     
         //WRITE PRODUCED ARRAY
